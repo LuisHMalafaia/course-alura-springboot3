@@ -21,6 +21,6 @@ public record SaveAddressDTO(
     String uf,
 
     @NotBlank
-    @Pattern(regexp = "\\d{0,8}")
+    @Pattern(regexp = "\\d{8}")
     String cep
 ) {}

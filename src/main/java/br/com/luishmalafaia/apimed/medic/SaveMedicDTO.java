@@ -16,7 +16,7 @@ public record SaveMedicDTO(
         String email,
 
         @NotBlank
-        @Pattern(regexp = "\\d{0,11}")
+        @Pattern(regexp = "\\d{9,11}")
         String phone,
 
         @NotBlank
