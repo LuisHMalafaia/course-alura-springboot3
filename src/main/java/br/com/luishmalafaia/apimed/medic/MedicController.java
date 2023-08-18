@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/v1/medics")
 public class MedicController {
@@ -24,6 +26,11 @@ public class MedicController {
     @GetMapping
     public Page<ListMedicDTO> findAll(@PageableDefault(size = 10, sort = {"name"}) Pageable pageable){
         return service.findAll(pageable);
+    }
+
+    @GetMapping("/{id}")
+    public Optional<ListMedicDTO> findById(@PathVariable Long id){
+        return this.service.findById(id);
     }
 
 }

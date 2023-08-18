@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class MedicService {
     @Autowired
@@ -16,6 +18,10 @@ public class MedicService {
     }
 
     public Page<ListMedicDTO> findAll(Pageable pageable){
-        return repository.findAll(pageable).map(ListMedicDTO::new);
+        return this.repository.findAll(pageable).map(ListMedicDTO::new);
+    }
+
+    public Optional<ListMedicDTO> findById(Long id) {
+        return this.repository.findById(id).map(ListMedicDTO::new);
     }
 }
