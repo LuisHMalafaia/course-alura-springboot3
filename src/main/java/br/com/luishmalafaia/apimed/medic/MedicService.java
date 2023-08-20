@@ -24,4 +24,9 @@ public class MedicService {
     public Optional<ListMedicDTO> findById(Long id) {
         return this.repository.findById(id).map(ListMedicDTO::new);
     }
+
+    public void update(UpdateMedicDTO data) {
+        var medic = repository.getReferenceById(data.id());
+        medic.updateData(data);
+    }
 }

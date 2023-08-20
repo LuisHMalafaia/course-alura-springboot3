@@ -1,6 +1,6 @@
 package br.com.luishmalafaia.apimed.medic;
 
-import br.com.luishmalafaia.apimed.address.SaveAddressDTO;
+import br.com.luishmalafaia.apimed.address.AddressDTO;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -28,5 +28,5 @@ public record SaveMedicDTO(
 
         @NotNull
         @Valid
-        SaveAddressDTO address
+        AddressDTO address
 ) {}

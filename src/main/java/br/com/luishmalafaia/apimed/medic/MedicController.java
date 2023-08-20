@@ -25,12 +25,18 @@ public class MedicController {
 
     @GetMapping
     public Page<ListMedicDTO> findAll(@PageableDefault(size = 10, sort = {"name"}) Pageable pageable){
-        return service.findAll(pageable);
+        return this.service.findAll(pageable);
     }
 
     @GetMapping("/{id}")
     public Optional<ListMedicDTO> findById(@PathVariable Long id){
         return this.service.findById(id);
+    }
+
+    @PutMapping
+    @Transactional
+    public void update(@RequestBody @Valid UpdateMedicDTO data){
+        this.service.update(data);
     }
 
 }

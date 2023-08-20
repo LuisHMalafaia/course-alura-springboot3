@@ -2,6 +2,7 @@ package br.com.luishmalafaia.apimed.medic;
 
 import br.com.luishmalafaia.apimed.address.Address;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,5 +37,17 @@ public class Medic {
         this.crm = data.crm();
         this.specialty = data.specialty();
         this.address = new Address(data.address());
+    }
+
+    public void updateData(UpdateMedicDTO data) {
+        if(data.name() != null){
+            this.name = data.name();
+        }
+        if(data.phone() != null){
+            this.phone = data.phone();
+        }
+        if(data.address() != null){
+            this.address.updateData(data.address());
+        }
     }
 }

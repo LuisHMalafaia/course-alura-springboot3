@@ -21,7 +21,7 @@ public class Address {
     private String uf; //state
     private String cep;
 
-    public Address(SaveAddressDTO address) {
+    public Address(AddressDTO address) {
         this.street = address.street();
         this.number = address.number();
         this.complement = address.complement();
@@ -29,5 +29,29 @@ public class Address {
         this.city = address.city();
         this.uf = address.uf();
         this.cep = address.cep();
+    }
+
+    public void updateData(AddressDTO data){
+        if(data.street() != null){
+            this.street = data.street();
+        }
+        if(data.number() != null){
+            this.number = data.number();
+        }
+        if(data.complement() != null){
+            this.complement = data.complement();
+        }
+        if(data.neighborhood() != null){
+            this.neighborhood = data.neighborhood();
+        }
+        if(data.city() != null){
+            this.city = data.city();
+        }
+        if(data.uf() != null){
+            this.uf = data.uf();
+        }
+        if(data.cep() != null){
+            this.cep = data.cep();
+        }
     }
 }
