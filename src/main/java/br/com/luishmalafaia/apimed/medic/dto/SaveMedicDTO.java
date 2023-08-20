@@ -1,6 +1,7 @@
-package br.com.luishmalafaia.apimed.medic;
+package br.com.luishmalafaia.apimed.medic.dto;
 
-import br.com.luishmalafaia.apimed.address.AddressDTO;
+import br.com.luishmalafaia.apimed.address.dto.AddressDTO;
+import br.com.luishmalafaia.apimed.medic.Specialty;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

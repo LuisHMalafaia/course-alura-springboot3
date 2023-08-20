@@ -1,4 +1,7 @@
-package br.com.luishmalafaia.apimed.medic;
+package br.com.luishmalafaia.apimed.medic.dto;
+
+import br.com.luishmalafaia.apimed.medic.Medic;
+import br.com.luishmalafaia.apimed.medic.Specialty;
 
 public record ListMedicDTO(
         Long id,

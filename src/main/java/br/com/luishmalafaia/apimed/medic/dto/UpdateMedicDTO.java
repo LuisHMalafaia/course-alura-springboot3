@@ -1,6 +1,6 @@
-package br.com.luishmalafaia.apimed.medic;
+package br.com.luishmalafaia.apimed.medic.dto;
 
-import br.com.luishmalafaia.apimed.address.AddressDTO;
+import br.com.luishmalafaia.apimed.address.dto.AddressDTO;
 import jakarta.validation.constraints.NotNull;
 
 public record UpdateMedicDTO(

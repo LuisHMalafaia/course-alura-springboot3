@@ -1,5 +1,8 @@
 package br.com.luishmalafaia.apimed.medic;
 
+import br.com.luishmalafaia.apimed.medic.dto.ListMedicDTO;
+import br.com.luishmalafaia.apimed.medic.dto.SaveMedicDTO;
+import br.com.luishmalafaia.apimed.medic.dto.UpdateMedicDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,15 +21,20 @@ public class MedicService {
     }
 
     public Page<ListMedicDTO> findAll(Pageable pageable){
-        return this.repository.findAll(pageable).map(ListMedicDTO::new);
+        return this.repository.findAllByActiveTrue(pageable).map(ListMedicDTO::new);
     }
 
     public Optional<ListMedicDTO> findById(Long id) {
-        return this.repository.findById(id).map(ListMedicDTO::new);
+        return this.repository.findByIdAndActiveTrue(id).map(ListMedicDTO::new);
     }
 
     public void update(UpdateMedicDTO data) {
-        var medic = repository.getReferenceById(data.id());
+        var medic = this.repository.getReferenceById(data.id());
         medic.updateData(data);
+    }
+
+    public void delete(Long id) {
+        var medic = this.repository.getReferenceById(id);
+        medic.delete();
     }
 }

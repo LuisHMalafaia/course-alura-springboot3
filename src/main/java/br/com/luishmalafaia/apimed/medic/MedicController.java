@@ -1,5 +1,8 @@
 package br.com.luishmalafaia.apimed.medic;
 
+import br.com.luishmalafaia.apimed.medic.dto.ListMedicDTO;
+import br.com.luishmalafaia.apimed.medic.dto.SaveMedicDTO;
+import br.com.luishmalafaia.apimed.medic.dto.UpdateMedicDTO;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +40,12 @@ public class MedicController {
     @Transactional
     public void update(@RequestBody @Valid UpdateMedicDTO data){
         this.service.update(data);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void delete(@PathVariable Long id){
+        this.service.delete(id);
     }
 
 }

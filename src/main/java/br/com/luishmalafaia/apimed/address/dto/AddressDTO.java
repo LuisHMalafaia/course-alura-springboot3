@@ -1,4 +1,4 @@
-package br.com.luishmalafaia.apimed.address;
+package br.com.luishmalafaia.apimed.address.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

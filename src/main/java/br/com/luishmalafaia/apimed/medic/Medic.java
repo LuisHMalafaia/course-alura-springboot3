@@ -1,8 +1,9 @@
 package br.com.luishmalafaia.apimed.medic;
 
 import br.com.luishmalafaia.apimed.address.Address;
+import br.com.luishmalafaia.apimed.medic.dto.SaveMedicDTO;
+import br.com.luishmalafaia.apimed.medic.dto.UpdateMedicDTO;
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Medic {
     private String email;
     private String phone;
     private String crm;
+    private Boolean active;
 
     @Enumerated(value = EnumType.STRING)
     private Specialty specialty;
@@ -37,6 +39,7 @@ public class Medic {
         this.crm = data.crm();
         this.specialty = data.specialty();
         this.address = new Address(data.address());
+        this.active = true;
     }
 
     public void updateData(UpdateMedicDTO data) {
@@ -49,5 +52,9 @@ public class Medic {
         if(data.address() != null){
             this.address.updateData(data.address());
         }
+    }
+
+    public void delete() {
+        this.active = false;
     }
 }

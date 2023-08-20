@@ -1,5 +1,6 @@
 package br.com.luishmalafaia.apimed.address;
 
+import br.com.luishmalafaia.apimed.address.dto.AddressDTO;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
