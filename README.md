@@ -1,4 +1,3 @@
-# course-alura-springboot3
 ## 💻 Sobre o projeto
 
 Projeto fictício desenvolvido durante o curso de Spring Boot 3 da Alura.
