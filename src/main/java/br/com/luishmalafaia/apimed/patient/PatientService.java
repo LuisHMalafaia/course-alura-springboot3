@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.data.domain.Pageable;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PatientService {
@@ -21,5 +22,9 @@ public class PatientService {
 
     public Page<ListPatientDTO> findAll(Pageable pageable) {
         return this.repository.findAll(pageable).map(ListPatientDTO::new);
+    }
+
+    public Optional<ListPatientDTO> findAllById(Long id) {
+        return this.repository.findById(id).map(ListPatientDTO::new);
     }
 }

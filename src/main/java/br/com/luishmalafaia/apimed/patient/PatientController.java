@@ -10,6 +10,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/patients")
@@ -25,6 +26,11 @@ public class PatientController {
     @GetMapping
     public Page<ListPatientDTO> findAll(@PageableDefault(size = 10, sort = {"name"}) Pageable pageable){
         return this.service.findAll(pageable);
+    }
+
+    @GetMapping("{id}")
+    public Optional<ListPatientDTO> findById(@PathVariable Long id){
+        return this.service.findAllById(id);
     }
 
 }
