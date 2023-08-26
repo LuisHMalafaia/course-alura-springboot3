@@ -2,6 +2,8 @@ package br.com.luishmalafaia.apimed.patient;
 
 import br.com.luishmalafaia.apimed.patient.dto.ListPatientDTO;
 import br.com.luishmalafaia.apimed.patient.dto.SavePatientDTO;
+import br.com.luishmalafaia.apimed.patient.dto.UpdatePatientDTO;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,6 +21,7 @@ public class PatientController {
     private PatientService service;
 
     @PostMapping
+    @Transactional
     public void save(@RequestBody @Valid SavePatientDTO data){
         this.service.save(data);
     }
@@ -31,6 +34,18 @@ public class PatientController {
     @GetMapping("{id}")
     public Optional<ListPatientDTO> findById(@PathVariable Long id){
         return this.service.findAllById(id);
+    }
+
+    @PutMapping
+    @Transactional
+    public void update(@RequestBody @Valid UpdatePatientDTO data){
+        this.service.update(data);
+    }
+
+    @DeleteMapping("{id}")
+    @Transactional
+    public void delete(@PathVariable Long id){
+        this.service.delete(id);
     }
 
 }
